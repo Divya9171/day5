@@ -1,47 +1,25 @@
-package com.day5;
-import java.util.*;
+package Assignment3;
 
-public class Employee {
+public class Employee extends person {
 	int empid;
-	String name;
 	double salary;
-	Date doj;
-	Vehicle veh;
+
 	public Employee() {
-		doj=new Date();
+	
+	}
+
+	public Employee(int empid, String name, String email, double salary) {
+		 super(name,email);// ctor chaining
 		
-	}
-	public Employee(int empid, String name, double salary, int day, int month, int year) {
 		this.empid = empid;
-		this.name = name;
 		this.salary = salary;
-		doj = new Date(day, month, year);
+
 	}
 
-	public void accept(Scanner sc) {
-		System.out.print("Enter the empid - ");
-		empid = sc.nextInt();
-		System.out.print("Enter the name - ");
-		name = sc.next();
-		System.out.print("Enter the salary - ");
-		salary = sc.nextDouble();
-		System.out.println("Enter the date of joining - ");
-		doj.accept(sc);
-	}
-
-	public void addVehicle(Scanner sc) {
-		veh = new Vehicle();
-		veh.accept(sc);
-	}
-
-	public void display() {
+	public void displayEmployee() {
 		System.out.println("Empid - " + empid);
-		System.out.println("Name - " + name);
+		displayPerson();
 		System.out.println("Salary - " + salary);
-		System.out.print("Date of Joining - ");
-		doj.display();
-		if (veh != null)
-			veh.display();
 	}
 
 }
